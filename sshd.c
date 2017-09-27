@@ -1647,7 +1647,10 @@ main(int ac, char **av)
 		privsep_pw->pw_passwd = xstrdup("*");
 	}
 	}
+#ifndef ANDROID
+	/* FIXME - Android doesn't have this */
 	endpwent();
+#endif
 
 	/* load host keys */
 	sensitive_data.host_keys = xcalloc(options.num_host_key_files,

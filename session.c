@@ -1206,6 +1206,12 @@ do_setup_env(Session *s, const char *shell)
 	if (getenv("TZ"))
 		child_set_env(&env, &envsize, "TZ", getenv("TZ"));
 
+#ifdef ANDROID
+	child_set_env(&env, &envsize, "ANDROID_ASSETS", "/system/app");
+	child_set_env(&env, &envsize, "ANDROID_DATA", "/data");
+	child_set_env(&env, &envsize, "ANDROID_ROOT", "/system");
+#endif
+
 	/* Set custom environment options from RSA authentication. */
 	if (!options.use_login) {
 		while (custom_environment) {
@@ -1617,7 +1623,10 @@ child_close_fds(void)
 	 * Close any extra file descriptors.  Note that there may still be
 	 * descriptors left by system functions.  They will be closed later.
 	 */
+#ifndef ANDROID
+	/* FIXME - Android doesn't have this */
 	endpwent();
+#endif
 
 	/*
 	 * Close any extra open file descriptors so that we don't have them
