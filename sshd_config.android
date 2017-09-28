@@ -104,7 +104,7 @@ UsePrivilegeSeparation sandbox         # Default for new installations.
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
 #UseDNS yes
-#PidFile /var/run/sshd.pid
+PidFile /data/ssh/sshd.pid
 #MaxStartups 10
 #PermitTunnel no
 #ChrootDirectory none

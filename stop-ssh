@@ -1,0 +1,10 @@
+#!/system/bin/sh
+
+umask 077
+
+KILL="/system/bin/kill"
+CAT="/system/bin/cat"
+
+PID=`$CAT /data/ssh/sshd.pid`
+$KILL -9 $PID
+

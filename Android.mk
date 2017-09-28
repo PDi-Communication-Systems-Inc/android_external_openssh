@@ -3,7 +3,7 @@ LOCAL_PATH:= $(call my-dir)
 ###################### libssh ######################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
     authfd.c authfile.c bufaux.c bufbn.c buffer.c \
@@ -47,7 +47,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
     ssh.c readconf.c clientloop.c sshtty.c \
@@ -67,7 +67,7 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
     sftp.c sftp-client.c sftp-common.c sftp-glob.c progressmeter.c
@@ -85,7 +85,7 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
     scp.c progressmeter.c bufaux.c
@@ -103,7 +103,7 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
 	sshd.c auth-rhosts.c auth-rsa.c auth-rh-rsa.c \
@@ -137,7 +137,7 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
        sftp-server.c sftp-common.c sftp-server-main.c
@@ -155,7 +155,7 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 LOCAL_SRC_FILES := \
     ssh-keygen.c
@@ -172,7 +172,7 @@ include $(BUILD_EXECUTABLE)
 ###################### sshd_config ######################
 
 include $(CLEAR_VARS)
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 LOCAL_MODULE := sshd_config
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/ssh
@@ -182,8 +182,27 @@ include $(BUILD_PREBUILT)
 ###################### start-ssh ######################
 
 include $(CLEAR_VARS)
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 LOCAL_MODULE := start-ssh
 LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_SRC_FILES := start-ssh
 include $(BUILD_PREBUILT)
+
+###################### init-ssh ######################
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional eng
+LOCAL_MODULE := init-ssh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES := init-ssh
+include $(BUILD_PREBUILT)
+
+###################### stop-ssh ######################
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional eng
+LOCAL_MODULE := stop-ssh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES := stop-ssh
+include $(BUILD_PREBUILT)
+
